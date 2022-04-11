@@ -203,6 +203,7 @@ End Sub
 
 ## Results: All Stocks Analysis
 ![All Stocks Analysis 2017 Table](https://github.com/MichelaZ/stock-analysis/blob/main/Submission/All_Stocks_Analysis_2017.png)
+
 ![[All Stocks Analysis 2018 Table](https://github.com/MichelaZ/stock-analysis/blob/main/Submission/All_Stocks_Analysis_2018.png)
 From just looking at the reports I've prepared for the client we can deduce the following in general there was a higher trade volume in 2018 than 2017, but the yearly returns tended to be lower. This seems counterintuitive to the general consensus that higher trade volume means higher sustainability. However, in the best performers RUN and ENPH this construct remained true. They were both heavily traded and had positive returns for both 2017 and 2018. If we are just going off of this data those would be the stocks I would recommend. It is 2022 so there is the basic issue of this data being a little out of date, but I think the client should also consider expanding the report to include the following for the last 5 to 10 years to exclude outliers that could be caused by something simple like a high year starting price:
 - The starting price and ending price.
@@ -334,6 +335,7 @@ End Sub
 ```
 ## All Stocks Analysis Refactor: Results
 ![All Stocks Analysis Refactored 2017 Table](https://github.com/MichelaZ/stock-analysis/blob/main/Submission/All_Stocks_Analysis_Refactored_2017.png)
+
 ![[All Stocks Analysis Refactored 2018 Table](https://github.com/MichelaZ/stock-analysis/blob/main/Submission/All_Stocks_Analysis_Refactored_2018.png)
 
 ##### Pros to the Refactored VBA Code

@@ -67,6 +67,7 @@ End Sub
 ```
 ##### Results of DQ Analysis:
 ![DQ Analysis Table](https://github.com/MichelaZ/stock-analysis/blob/main/Submission/DQ_Analysis.png)
+
  It turned out DQ's 2018 performance wasn't very good it was traded 107,873,900 with a yearly return of -63%, but I was able to ensure my for loop is able to collect the total volume and the yearly return for a single stock in a single year. Now I can use it to make a table to summarize the performance of all the companies for each year. This will make it easier for our client to add new data each year and compare the results of multiple companies.
 
 ## All Stocks Analysis:

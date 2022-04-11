@@ -214,7 +214,7 @@ From just looking at the reports I've prepared for the client we can deduce the 
 _Reference:_
 Butler, R. A. (2022, March 10). How to evaluate stock performance. Investopedia. Retrieved April 10, 2022, from https://www.investopedia.com/articles/investing/011416/how-evaluate-stock-performance.asp 
 
-## All Stocks Analysis Refactor
+## All Stocks Analysis Refactor:
 
 ![All Stocks Analysis Timer Message Box](https://github.com/MichelaZ/stock-analysis/blob/main/Submission/Unrefactored_Timer_Results.png)
 
@@ -342,7 +342,7 @@ End Sub
 
 ![All Stocks Analysis Refactored 2018 Table](https://github.com/MichelaZ/stock-analysis/blob/main/Submission/All_Stocks_Analysis_Refactored_2018.png)
 
-##### Pros to the Refactored VBA Code
+##### Pros to the Refactored VBA Code:
 I was able to get my data to match the original AllStocksAnalysis macro and the refactor was faster. 
 - The refactored code ran faster because in the original code the nested for loop is switching back and forth between worksheets to gather and store data, but the refactored code is able to use the tickerIndex to store the data into arrays. Once the data is gathered it can use the arrays to populate the data onto the other sheet, so it doesn't need to switch back and forth in between each ticker. If you are working with a large data set this refactor will significantly benefit you. 
 - Another benefit of the tickerIndex variable is that it removes the need for nested loops which makes the code easier to read. One disadvantage of the original code was the use of nested loops. Nested loops and if statements can be difficult to read and understand how the code works. So using the tickerIndex improves the readability of the code by assigning consistent easy to read variable and getting rid of the nested loop.

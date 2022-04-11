@@ -5,12 +5,12 @@ _UMN VBA homework_
 The client is helping his parents examine stock data from 2017 and 2018 to determine which companies to invest in. The client's parents believe the following:
 >. . .if a stock is traded often, then the price will accurately reflect the value of the stock.
 
-So I want to create a macro that examines the total daily volume, which is the total number of shares traded in a day, and the yearly return, or the price difference between the beggining and ending of the year, for each company in each year to help the client examine the stock data and present the results to his parents.
+So I want to create a macro that examines the total daily volume, which is the total number of shares traded in a day, and the yearly return, or the price difference between the beginning and ending of the year, for each company in each year to help the client examine the stock data and present the results to his parents.
 
 ## DQ Analysis:
-His parents were first interested in a company called DQ. So I made a macro to analyze the 2018 sheet for their performace. This way I could check that my code is able to get the  total daily volume and yearly return into a simple table of a single stock for a single year.
+His parents were first interested in a company called DQ. So, I made a macro to analyze the 2018 sheet for their performance. This way I could check that my code is able to get the total daily volume and yearly return into a simple table of a single stock for a single year.
 
-1. I created a sub called DQAnalysis which activated a worksheet called "DQ Analysis"  and created a title at the top of the worksheet.
+1. I created a sub called DQAnalysis which activated a worksheet called "DQ Analysis” and created a title at the top of the worksheet.
 ```
 Sub DQAnalysis()    
     Worksheets("DQ Analysis").Activate
@@ -27,18 +27,18 @@ Sub DQAnalysis()
 ```
     totalVolume = 0
 ```
-4. I declared two varaibles as doubles for the starting and ending prices. The starting price is the closing price on the first day of the year and the ending price is the return on the last day of the year which will be used to give the yearly return as an output.
+4. I declared two variables as doubles for the starting and ending prices. The starting price is the closing price on the first day of the year and the ending price is the return on the last day of the year which will be used to give the yearly return as an output.
 ```
     Dim startingPrice As Double
     Dim endingPrice As Double
 ```
-5. I created variables to determine the what rows the for loop should loop through.
+5. I created variables to determine what rows the for loop should loop through.
 ```
     rowStart = 2
     'rowEnd code taken from https://stackoverflow.com/questions/18088729/row-count-where-data-exists
     rowEnd = Cells(Rows.Count, "A").End(xlUp).Row
 ```
-6. I created a for loop that loops through the data in 2018. If the company equals "DQ" it increases the total volume by the value for that day. It establishes the starting price of that stock by determining that if the current row equals "DQ" and the previous one does not. Similarly the ending price of that stock can be determined if the current row equals "DQ" and the next one does not.
+6. I created a for loop that loops through the data in 2018. If the company equals "DQ" it increases the total volume by the value for that day. It establishes the starting price of that stock by determining that if the current row equals "DQ" and the previous one does not. Similarly, the ending price of that stock can be determined if the current row equals "DQ" and the next one does not.
 ```
      For i = rowStart To rowEnd
 
@@ -66,11 +66,11 @@ Sub DQAnalysis()
 End Sub
 ```
 ##### Results of DQ Analysis:
-![DQ Analysis Table]()
- It turned out DQ's 2018 performace wasn't very good it was traded 107,873,900 with a yearly return of -63%, but I was able to ensure my for loop is able to collect the total volume and the yearly return for a single stock in a single year. Now I can use it to make a table to summarize the performance of all the companies for each year. This will make it easier for our client to add new data each year and compare the results of multiple companies.
+![DQ Analysis Table](https://github.com/MichelaZ/stock-analysis/blob/main/Submission/DQ_Analysis.png)
+ It turned out DQ's 2018 performance wasn't very good it was traded 107,873,900 with a yearly return of -63%, but I was able to ensure my for loop is able to collect the total volume and the yearly return for a single stock in a single year. Now I can use it to make a table to summarize the performance of all the companies for each year. This will make it easier for our client to add new data each year and compare the results of multiple companies.
 
 ## All Stocks Analysis:
-1. First I created a new macro called AllStock Analysis. In it I created a variable called YearValue that asks for an input value for the year this will be used to determine which data the analysis calls. I also defined some variables that i will use to see how fast this code runs.
+1. First I created a new macro called AllStockAnalysis. In it I created a variable called YearValue that asks for an input value for the year this will be used to determine which data the analysis calls. I also defined some variables that i will use to see how fast this code runs.
 ```
 Sub AllStocksAnalysis()
    YearValue = InputBox("What year would you like to run the analysis for?")
@@ -114,12 +114,12 @@ Sub AllStocksAnalysis()
    tickers(11) = "VSLR"
 ```
 
-4. I declared two varaibles as doubles for the starting and ending prices as I had done in the DQ Analysis. 
+4. I declared two variables as doubles for the starting and ending prices as I had done in the DQ Analysis. 
 ```
     Dim startingPrice As Double
     Dim endingPrice As Double
 ```
-5. I  activting the worksheet this time subsituting "2018" with the YearValue variable so the end user can select the year. I used the same variables as before to determine the what rows the for loop should loop through.
+5. I  activating the worksheet this time substituting "2018" with the YearValue variable so the end user can select the year. I used the same variables as before to determine what rows the for loop should loop through.
 ```
    Worksheets(YearValue).Activate
     rowStart = 2
@@ -173,7 +173,7 @@ Sub AllStocksAnalysis()
     Columns("B").AutoFit
     Columns("C").AutoFit
    
-    'Conditional formating
+    'Conditional formatting
     dataRowStart = 4
     DataRowEnd = 15
     
@@ -201,9 +201,9 @@ End Sub
 ```
 
 ## Results: All Stocks Analysis
-![All Stocks Analysis 2017 Table]()
-![[All Stocks Analysis 2018 Table]()
-From just looking at the reports I've prepared for the client we can deduce the following in general there was a higher trade volume in 2018 than 2017, but the yearly returns tended to be lower. This seems counterintuitive to the general consensus that higher trade volume means higher sustainablility. However, in the best performers RUN and ENPH this construct remained true. They were both heavily traded and had possitive returns for both 2017 and 2018. If we are just going off of this data those would be the stocks I would recommend. It is 2022 so there is the basic issue of this data being a little out of date, but I think the client should also consider expanding the report to include the following for the last 5 to 10 years to exculude outliers that could be caused by something simple like a high year starting price:
+![All Stocks Analysis 2017 Table](https://github.com/MichelaZ/stock-analysis/blob/main/Submission/All_Stocks_Analysis_2017.png)
+![[All Stocks Analysis 2018 Table](https://github.com/MichelaZ/stock-analysis/blob/main/Submission/All_Stocks_Analysis_2018.png)
+From just looking at the reports I've prepared for the client we can deduce the following in general there was a higher trade volume in 2018 than 2017, but the yearly returns tended to be lower. This seems counterintuitive to the general consensus that higher trade volume means higher sustainability. However, in the best performers RUN and ENPH this construct remained true. They were both heavily traded and had positive returns for both 2017 and 2018. If we are just going off of this data those would be the stocks I would recommend. It is 2022 so there is the basic issue of this data being a little out of date, but I think the client should also consider expanding the report to include the following for the last 5 to 10 years to exclude outliers that could be caused by something simple like a high year starting price:
 - The starting price and ending price.
 - The average price for the year.
 - choose a period instead of year start and year end. Examine the stock through that period.
@@ -212,22 +212,22 @@ _Reference:_
 Butler, R. A. (2022, March 10). How to evaluate stock performance. Investopedia. Retrieved April 10, 2022, from https://www.investopedia.com/articles/investing/011416/how-evaluate-stock-performance.asp 
 
 ## All Stocks Analysis Refactor
-![[All Stocks Analysis Timer Message Box]()
-Our first AllStockAnalysis macro ran a little slow. To see if I could get the code to run a little faster I did a refactor.
+![[All Stocks Analysis Timer Message Box](https://github.com/MichelaZ/stock-analysis/blob/main/Submission/Unrefactored_Timer_Results.png)
+Our first AllStockAnalysis macro ran a little slow. To see if I could get the code to run a little faster, I did a refactor.
 
 ##### Pros to Refactoring Code:
 - Makes code faster.
 - Makes code easy to read.
-- Makes code easier to add additional function to later on.
+- Makes code easier to add additional function to later.
 - Helps to keep code up to date.
 - Fixing bugs in the original code.
 
 ##### Cons to Refactoring Code:
 - Refactoring code takes time and time is money.
-- There is a chance you will make a Mistake. In this example I am using VBA so I can see  easily if the code is broken, but in another language or on a bigger project it may be more difficult to debug the code if you break it while refactoring.
+- There is a chance you will make a Mistake. In this example I am using VBA so I can see easily if the code is broken, but in another language or on a bigger project it may be more difficult to debug the code if you break it while refactoring.
 - May be difficult for beginners.
 
-1. The begining is the same as the AllStocksAnalysis macro:
+1. The beginning is the same as the AllStocksAnalysis macro:
 
 Sub AllStocksAnalysisRefactored()
     Dim startTime As Single
@@ -294,14 +294,14 @@ Sub AllStocksAnalysisRefactored()
                tickerEndingPrices(tickerIndex) = Cells(i, 6).Value
            End If
 ```
-5. Then I added an if statment to move to go to the next ticker once it looped through all the rows for the current ticker.
+5. Then I added an if statement to move to go to the next ticker once it looped through all the rows for the current ticker.
 ```
              If Cells(i, 1).Value = tickers(tickerIndex) And Cells(i + 1, 1).Value <> tickers(tickerIndex) Then
                tickerIndex = tickerIndex + 1
             End If                    
     Next i
 ```    
-6. I created a loop based on the the AllStocksAnalysis macro and subbed in my new variable names to output the arrays' data to a table. I also formatted the table and added the message box for the timer.
+6. I created a loop based on the AllStocksAnalysis macro and subbed in my new variable names to output the arrays' data to a table. I also formatted the table and added the message box for the timer.
 ```
     For i = 0 To 11        
        Worksheets("All Stocks Analysis").Activate
@@ -332,16 +332,16 @@ Sub AllStocksAnalysisRefactored()
 End Sub
 ```
 ## All Stocks Analysis Refactor: Results
-![All Stocks Analysis Refactored 2017 Table]()
-![[All Stocks Analysis Refactored 2018 Table]()
+![All Stocks Analysis Refactored 2017 Table](https://github.com/MichelaZ/stock-analysis/blob/main/Submission/All_Stocks_Analysis_Refactored_2017.png)
+![[All Stocks Analysis Refactored 2018 Table](https://github.com/MichelaZ/stock-analysis/blob/main/Submission/All_Stocks_Analysis_Refactored_2018.png)
 
 ##### Pros to the Refactored VBA Code
 I was able to get my data to match the original AllStocksAnalysis macro and the refactor was faster. 
-- The refactored code ran faster beacuse in the original code the nested for loop is switching back and forth between worksheets to gather and store data, but the refactored code is able to use the tickerIndex to store the data into arrays. Once the data is gathered it can use the arrays to populate the data onto the other sheet, so it doesn't need to switch back and forth in between each ticker. If you are working with a large data set this refactor will significantly benefit you. 
-- Another benefit of the tickerIndex variable is that it removes the need for nested loops which makes the code easier to read. One disadvantage of the original code was the use of nested loops. Nested loops and if statements can be difficult to read and understand how the code works. So using the tickerIndex improves the readability of the code by assigning consistant easy to read variable and getting rid of the nested loop.
+- The refactored code ran faster because in the original code the nested for loop is switching back and forth between worksheets to gather and store data, but the refactored code is able to use the tickerIndex to store the data into arrays. Once the data is gathered it can use the arrays to populate the data onto the other sheet, so it doesn't need to switch back and forth in between each ticker. If you are working with a large data set this refactor will significantly benefit you. 
+- Another benefit of the tickerIndex variable is that it removes the need for nested loops which makes the code easier to read. One disadvantage of the original code was the use of nested loops. Nested loops and if statements can be difficult to read and understand how the code works. So using the tickerIndex improves the readability of the code by assigning consistent easy to read variable and getting rid of the nested loop.
 - With VBA you can test the refactor easily.
 
-![[All Stocks Analysis Refactored Timer Message Box]()
+![[All Stocks Analysis Refactored Timer Message Box](https://github.com/MichelaZ/stock-analysis/blob/main/Submission/Refactored_Timer_Results.png)
 
 ##### Pros for the Original Code:
 - Although the original code was much slower than the refactor, if you were working with a small data set I don't think it's worth taking the additional time to refactor the code. The functionality is the same and with even with this size of a data set the original code took less than a second. I don't think the average person would really notice much difference between .15 seconds and .78 seconds.
@@ -349,12 +349,14 @@ I was able to get my data to match the original AllStocksAnalysis macro and the 
 
 ##### Cons for the Refactored Code:
 - Took time to refactor.
-- Might be dificult for begginers.
+- Might be difficult for beginners.
 
 ##### Cons for the Original Code:
-- The code was slow and nested loops are difficult to read.
-- 
+- The code was slower.
+- The code was difficult to read.
 
 _Author's notes:_  
+- All the files I created are in the submission folder. The resources folder just contains the downloads.
 - The formatting is a little different between the AllStocksAnalysis and the AllStocksAnalysisRefactored macro, but the reason I started my code over from the starter code was to get it to look more like the assignment prompt. 
-- The actual macro has comments inside the code. I removed most of the ones in my excerpts, because I added further expenation in the numbered stepsso I found them to be redundant. If you would like to see my comments in code please open the TXT file or the macro enabled workbook.
+- The actual macro has comments inside the code. I removed most of the ones in my excerpts, because I added further explanation in the numbered steps, so I found them to be redundant. If you would like to see my comments in the code, please open the TXT file or the macro enabled workbook. 
+- Another step I might take to improve both the refactored and the original code would be to improve the code for the yearValue variable. If you don’t enter one of the sheet names it might give the user error as it is now. 

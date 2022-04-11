@@ -216,7 +216,7 @@ Butler, R. A. (2022, March 10). How to evaluate stock performance. Investopedia.
 
 ## All Stocks Analysis Refactor
 
-![[All Stocks Analysis Timer Message Box](https://github.com/MichelaZ/stock-analysis/blob/main/Submission/Unrefactored_Timer_Results.png)
+![All Stocks Analysis Timer Message Box](https://github.com/MichelaZ/stock-analysis/blob/main/Submission/Unrefactored_Timer_Results.png)
 
 Our first AllStockAnalysis macro ran a little slow. To see if I could get the code to run a little faster, I did a refactor.
 
